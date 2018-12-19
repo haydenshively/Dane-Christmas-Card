@@ -1,16 +1,20 @@
 let contentHorizontalInset = 10;
 let contentVerticalInset = 20;
+let swimmerSwitchFrameRate = 1000;
 
 var backgroundImage;
-var swimmerImageLeft, swimmerImageRight, dolphinImage;
+var swimmerImage, swimmerImageLeft, swimmerImageRight, dolphinImage;
 
 var swimmerX, swimmerY, dolphinX, dolphinY;
+var swimmerIsLeft = true;
+var loopCount = 0;
 
 
 function preload() {
   backgroundImage = loadImage('assets/lane_lines.jpg');
-  swimmerImageLeft = loadImage('assets/swimmer_left.jpg');
-  swimmerImageRight = loadImage('assets/swimmer_right.jpg');
+  swimmerImageLeft = loadImage('assets/swimmer_left.png');
+  swimmerImageRight = loadImage('assets/swimmer_right.png');
+  dolphinImage = loadImage('assets/dolphin.png');
 }
 
 function setup() {
@@ -18,8 +22,8 @@ function setup() {
   createCanvas(windowWidth - contentHorizontalInset, windowHeight - contentVerticalInset);
   background(backgroundImage, [255]);
 
-  swimmerX = width*3/4
-  dolphinX = width*2/4
+  swimmerX = width*2/4 + width/8;
+  dolphinX = width*1/4 + width/8;
 
   swimmerY = height
   dolphinY = height
@@ -27,14 +31,21 @@ function setup() {
 
 function draw() {
   // put drawing code here
-  // if (mouseIsPressed) {
-  //   fill(0)
-  // }else {
-  //   fill(255)
-  // }
-  // ellipse(mouseX, mouseY, 80, 80)
+  background(backgroundImage, [255]);
 
-  image(swimmerImageLeft, swimmerX, swimmerY)
+  if (swimmerY - swimmerImageLeft.height > 0) {
+    var swimmerImage;
+    if (swimmerIsLeft) {swimmerImage = swimmerImageLeft;}
+    else {swimmerImage = swimmerImageRight;}
+
+    image(swimmerImage, swimmerX - swimmerImage.width/2, swimmerY - swimmerImage.height)
+    image(dolphinImage, dolphinX - dolphinImage.width/2, dolphinY - dolphinImage.height)
+
+    dolphinY -= 2
+  }else {
+    text('You win!')
+    ellipse(mouseX, mouseY, 80, 80)
+  }
 }
 
 function windowResized() {
@@ -46,4 +57,9 @@ function windowResized() {
 
 function touchMoved() {
   return false
+}
+
+function touchStarted() {
+  swimmerIsLeft = !swimmerIsLeft
+  swimmerY -= 10
 }
