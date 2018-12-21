@@ -3,6 +3,7 @@ let contentVerticalInset = 20;
 
 var backgroundImage;
 var swimmerImage, swimmerImageLeft, swimmerImageRight, dolphinImage;
+var scalingFactor;
 
 var swimmerX, swimmerY, dolphinX, dolphinY;
 var swimmerIsLeft = true;
@@ -16,6 +17,8 @@ function preload() {
   swimmerImageLeft = loadImage('assets/swimmer_left.png');
   swimmerImageRight = loadImage('assets/swimmer_right.png');
   dolphinImage = loadImage('assets/dolphin.png');
+  
+  scalingFactor = swimmerImageLeft.height/dolphinImage.height;
 }
 
 function setup() {
@@ -40,7 +43,7 @@ function draw() {
     else {swimmerImage = swimmerImageRight;}
 
     image(swimmerImage, swimmerX - swimmerImage.width/2, swimmerY - swimmerImage.height)
-    image(dolphinImage, dolphinX - dolphinImage.width/2, dolphinY - dolphinImage.height, swimmerImage.width, swimmerImage.height)
+    image(dolphinImage, dolphinX - dolphinImage.width*scalingFactor/2, dolphinY - swimmerImage.height, dolphinImage.width*scalingFactor, swimmerImage.height)
 
     if (started) {dolphinY -= random(1, dolphinMaxSpeed);}
   }else if (dolphinY - dolphinImage.height > 0) {
