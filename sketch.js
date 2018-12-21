@@ -45,21 +45,21 @@ function draw() {
   }else if (dolphinY - dolphinImage.height > 0) {
     rectMode(CENTER)
     fill(5, 5, 20)
-    rect(width/2, height/2, width*2/3, height/2, 15, 15, 15, 15);
+    rect(width/2, height/2, width*2/3, height/3, 15, 15, 15, 15);
     fill(20, 255, 20)
     textAlign(CENTER, CENTER)
     textStyle(BOLD)
-    textSize(width/40);
-    text('Dane wins! Merry Christmas!', width/2, height/2, width*2/3, height/2)
+    textSize(32);
+    text('Dane wins! Merry Christmas!', width/2, height/2, width*2/3, height/3)
   }else {
     rectMode(CENTER)
     fill(5, 5, 20)
-    rect(width/2, height/2, width*2/3, height/2, 15, 15, 15, 15);
+    rect(width/2, height/2, width*2/3, height/3, 15, 15, 15, 15);
     fill(255, 20, 20)
     textAlign(CENTER, CENTER)
     textStyle(BOLD)
-    textSize(width/40);
-    text('Dolphin wins. Shake device to try again.', width/2, height/2, width*2/3, height/2)
+    textSize(32);
+    text('Dolphin wins. Shake device to try again.', width/2, height/2, width*2/3, height/3)
   }
 }
 
