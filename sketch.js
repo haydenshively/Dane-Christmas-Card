@@ -46,7 +46,7 @@ function draw() {
     image(dolphinImage, dolphinX - dolphinImage.width*scalingFactor/2, dolphinY - swimmerImage.height, dolphinImage.width*scalingFactor, swimmerImage.height)
 
     if (started) {dolphinY -= random(1, dolphinMaxSpeed);}
-  }else if (dolphinY - dolphinImage.height > 0) {
+  }else if (dolphinY - swimmerImageLeft.height > 0) {
     rectMode(CENTER)
     fill(5, 5, 20)
     rect(width/2, height/2, width*2/3, height/3, 15, 15, 15, 15);
