@@ -7,6 +7,7 @@ var swimmerImage, swimmerImageLeft, swimmerImageRight, dolphinImage;
 var swimmerX, swimmerY, dolphinX, dolphinY;
 var swimmerIsLeft = true;
 var swimmerSpeed = 10;
+var started = false;
 let dolphinMaxSpeed = 3;
 
 
@@ -41,7 +42,7 @@ function draw() {
     image(swimmerImage, swimmerX - swimmerImage.width/2, swimmerY - swimmerImage.height)
     image(dolphinImage, dolphinX - dolphinImage.width/2, dolphinY - dolphinImage.height, swimmerImage.width, swimmerImage.height)
 
-    dolphinY -= random(1, dolphinMaxSpeed)
+    if (started) {dolphinY -= random(1, dolphinMaxSpeed);}
   }else if (dolphinY - dolphinImage.height > 0) {
     rectMode(CENTER)
     fill(5, 5, 20)
@@ -77,6 +78,7 @@ function touchStarted() {
   swimmerY -= swimmerSpeed;
 
   if (swimmerY - dolphinY > 20) {swimmerSpeed += 1;}
+  started = true;
 }
 
 function deviceShaken() {
