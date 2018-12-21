@@ -50,7 +50,7 @@ function draw() {
     textAlign(CENTER)
     textStyle(BOLD)
     textSize(32);
-    text('Dane wins! Merry Christmas!', width/2, height/2, width/2, 32)
+    text('Dane wins! Merry Christmas!', width/2, height/2, width/2, 64)
   }else {
     rectMode(CENTER)
     fill(5, 5, 20)
@@ -59,7 +59,7 @@ function draw() {
     textAlign(CENTER)
     textStyle(BOLD)
     textSize(32);
-    text('Dolphin wins. Shake device to try again.', width/2, height/2, width/2, 32)
+    text('Dolphin wins. Shake device to try again.', width/2, height/2, width/2, 64)
   }
 }
 
