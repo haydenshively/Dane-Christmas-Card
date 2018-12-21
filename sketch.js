@@ -7,7 +7,7 @@ var swimmerImage, swimmerImageLeft, swimmerImageRight, dolphinImage;
 var swimmerX, swimmerY, dolphinX, dolphinY;
 var swimmerIsLeft = true;
 var swimmerSpeed = 10;
-var dolphinMaxSpeed = 3;
+let dolphinMaxSpeed = 3;
 
 
 function preload() {
@@ -76,8 +76,7 @@ function touchStarted() {
   swimmerIsLeft = !swimmerIsLeft;
   swimmerY -= swimmerSpeed;
 
-  if (dolphinY - swimmerY > 20) {swimmerSpeed += 1;}
-  else if (swimmerY - dolphinY > 20) {dolphinMaxSpeed += 1;}
+  if (swimmerY - dolphinY > 20) {swimmerSpeed += 1;}
 }
 
 function deviceShaken() {
