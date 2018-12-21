@@ -39,7 +39,7 @@ function draw() {
     else {swimmerImage = swimmerImageRight;}
 
     image(swimmerImage, swimmerX - swimmerImage.width/2, swimmerY - swimmerImage.height)
-    image(dolphinImage, dolphinX - dolphinImage.width/2, dolphinY - dolphinImage.height)
+    image(dolphinImage, dolphinX - dolphinImage.width/2, dolphinY - dolphinImage.height, swimmerImage.width, swimmerImage.height)
 
     dolphinY -= random(1, dolphinMaxSpeed)
   }else if (dolphinY - dolphinImage.height > 0) {
